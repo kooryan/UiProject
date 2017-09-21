@@ -1,0 +1,15 @@
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.geometry.Pos?>
+<VBox fx:controller="sample.Controller" fx:id="pane"
+      xmlns:fx="http://javafx.com/fxml" >
+        <Button text="Add TextField"  fx:id="addButton" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#addNewTextField" />
+
+<Button text="Sum of Numbers" GridPane.columnIndex="2" GridPane.rowIndex="2" onAction="#addNumbers"/>
+
+</VBox>
