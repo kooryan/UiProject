@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -11,16 +12,18 @@ import javafx.scene.layout.VBox;
 import java.util.ArrayList;
 
 public class Controller {
+
     @FXML
     public VBox pane;
     @FXML
-    private Button addbutton;
-
+    public VBox pane1;
     @FXML
-    private TextField field;
+    private Button addButton;
 
-    @FXML
-    private void addNewTextField(ActionEvent event) {
+    public TextField field;
+
+
+    public void addNewTextField(ActionEvent event) {
         field = new TextField();
 
         field.textProperty().addListener(new ChangeListener<String>() {
@@ -32,35 +35,30 @@ public class Controller {
             }
         });
 
+        pane1.getChildren().add(field);
 
-        pane.getChildren().add(field);
 
     }
 
-    @FXML
-    private void addNumbers(ActionEvent e) {
-
-        ArrayList<Integer> numList = new ArrayList<>();
-
+    public void addNumbers(ActionEvent e) {
+        pane.getChildren();
 
         try {
             ArrayList<Integer> list = new ArrayList<>();
+            //Loop to group all the textfields made by RichikSC
+            for (Node n : pane1.getChildren()) {
+                int result = Integer.parseInt( ((TextField) n).getText());
 
-            int result = Integer.parseInt(field.getText());
-
-            list.add(result);
-
-
-
-
-            int sum = 0;
-            for (int i : numList) {
-                sum += result;
-                System.out.println("The sum of numbers is  = " + sum);
+                list.add(result);
             }
+            int sum = 0;
+            for (int i : list) {
+                sum += i;
+            }
+            System.out.println("The sum of numbers is  = " + sum);
 
         } catch (NumberFormatException exception) {
-            exception.printStackTrace();
+            System.out.println("You have nothing");
         }
     }
 }
