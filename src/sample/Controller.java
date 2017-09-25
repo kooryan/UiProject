@@ -5,7 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
@@ -18,13 +18,16 @@ public class Controller {
     @FXML
     public VBox pane1;
     @FXML
-    private Button addButton;
-
+    public Label updateLabel;
     public TextField field;
 
 
     public void addNewTextField(ActionEvent event) {
         field = new TextField();
+
+        field.setMinWidth(50);
+        field.setPrefWidth(50);
+        field.setMaxWidth(100);
 
         field.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -37,11 +40,9 @@ public class Controller {
 
         pane1.getChildren().add(field);
 
-
     }
 
     public void addNumbers(ActionEvent e) {
-        pane.getChildren();
 
         try {
             ArrayList<Integer> list = new ArrayList<>();
@@ -55,10 +56,10 @@ public class Controller {
             for (int i : list) {
                 sum += i;
             }
-            System.out.println("The sum of numbers is  = " + sum);
+            System.out.println("The sum of numbers = " + sum);
 
         } catch (NumberFormatException exception) {
-            System.out.println("You have nothing");
+            System.out.println("Your textfield(s) don't have a number!");
         }
     }
 }
