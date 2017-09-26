@@ -9,8 +9,9 @@
     <HBox>
         <Button text="Add TextField" GridPane.columnIndex="1" GridPane.rowIndex="1"
                 onAction="#addNewTextField"/>
-        <!--<Label text="Answer:" fx:id="updateLabel"/>-->
         <Button text="Sum of Numbers" GridPane.columnIndex="2" GridPane.rowIndex="2" onAction="#addNumbers"/>
+        <Label text="Answer:" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+        <Label fx:id="updateLabel" GridPane.columnIndex="4" GridPane.rowIndex="4" />
     </HBox>
 
     <VBox fx:id="pane1"/>

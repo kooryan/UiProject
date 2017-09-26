@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -56,7 +57,8 @@ public class Controller {
             for (int i : list) {
                 sum += i;
             }
-            System.out.println("The sum of numbers = " + sum);
+//            System.out.println("The sum of numbers = " + sum);
+            updateLabel.textProperty().bind(new SimpleIntegerProperty(sum).asString());
 
         } catch (NumberFormatException exception) {
             System.out.println("Your textfield(s) don't have a number!");
